@@ -170,4 +170,18 @@ public class MusicOrganizer
             addTrack(track);
         }
     }
-}
+    
+    /**
+     * Método que que toma un único parámetro de tipo String y muestra por pantalla la información 
+     * de los tracks que contienen dicha cadena en el título de la canción.
+     */
+    public void findInTitle(String busqueda){
+        for (Track cancion : tracks){
+            if(cancion.getTitle().contains(busqueda)){
+                System.out.println(cancion.getDetails());
+            }
+           }
+        System.out.println("No hay resultados en la búsqueda.");
+    }
+ }
+ 
