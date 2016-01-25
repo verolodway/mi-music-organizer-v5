@@ -15,15 +15,17 @@ public class Track
     private String filename;
     //Variable que nos permite saber cuantas veces se ha reproducido una canción
     private int playCount;
+    //Variable que nos dice lo que dura la canción
+    private String duracion;
     /**
      * Constructor for objects of class Track.
      * @param artist The track's artist.
      * @param title The track's title.
      * @param filename The track file. 
      */
-    public Track(String artist, String title, String filename)
+    public Track(String artist, String title, String filename, String duracion)
     {
-        setDetails(artist, title, filename);
+        setDetails(artist, title, filename, duracion);
         playCount = 0;
     }
     
@@ -35,7 +37,7 @@ public class Track
      */
     public Track(String filename)
     {
-        setDetails("unknown", "unknown", filename);
+        setDetails("unknown", "unknown", filename, duracion);
     }
     
     /**
@@ -71,13 +73,26 @@ public class Track
      */
     public String getDetails()
     {
-        return artist + ": " + title + "  (file: " + filename + ")" + playCount;
+        return artist + ": " + title + "  (file: " + filename + ")" + playCount + duracion;
+    }
+    
+    /**
+     * Método que nos permite saber cual es la duración de una canción
+     */
+    public String getDuracion(){
+        return duracion;
+    }
+    /**
+     * Método que nos permite editar la duración de un archivo
+     */
+    public String editDuracion(String nuevaDuracion){
+        return nuevaDuracion;
     }
     
     /**
      * Método que nos devuelve el nº de veces que se ha reproducido una canción
      */
-    public int getPlayCount(String filename){
+    public int getPlayCount(){
         return playCount;
     }
     
@@ -101,11 +116,12 @@ public class Track
      * @param title The track's title.
      * @param filename The track file. 
      */
-    private void setDetails(String artist, String title, String filename)
+    private void setDetails(String artist, String title, String filename, String duracion)
     {
         this.artist = artist;
         this.title = title;
         this.filename = filename;
+        this.duracion = duracion;
     }
     
 }
