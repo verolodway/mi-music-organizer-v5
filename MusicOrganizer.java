@@ -188,7 +188,7 @@ public class MusicOrganizer
     /**
      * Método que nos permite ver los detalles de todas las canciones usando un iterador
      */
-    public void istAllTrackWithIterator(){
+    public void listAllTrackWithIterator(){
         Iterator<Track> it = tracks.iterator();
         while (it.hasNext()){
             Track tracks = it.next();
@@ -225,5 +225,15 @@ public class MusicOrganizer
         
     }
     
- }
+     public void mostrarPorCarpeta(String folder)
+    {
+        ArrayList<Track> tempTracks = reader.readTracks(folder, ".mp3");
+
+        // Put all thetracks into the organizer.
+        for(Track track : tempTracks) {
+            addTrack(track);
+            System.out.println(track.getDetails());
+        }
+    }
+}
  
