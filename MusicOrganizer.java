@@ -196,5 +196,19 @@ public class MusicOrganizer
         }
         
     }
+    
+    /**
+     * Método que nos permite eliminar una canción por el artista.
+     */
+    public void removeByArtist(String artista){
+        Iterator<Track> it = tracks.iterator();
+        while (it.hasNext()){
+            Track tracks = it.next();
+            if (tracks.getArtist().contains(artista)){
+                it.remove();
+            }
+        }
+        
+    }
  }
  
